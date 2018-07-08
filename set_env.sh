@@ -4,8 +4,8 @@
 ## ======================================
 
 ## Make sure CC and CXX are set properly in your system.
-export CC=${CC}
-export CXX=${CXX}
+export CC=cc
+export CXX=CC
 
 ##
 ## Ingore this flag if you are "not using" MacOS.
@@ -24,7 +24,7 @@ export HMLP_USE_INTEL=true
 export HMLP_USE_BLAS=true
 
 ## Make sure MKLROOT is defined in your system. (icc/icpc)
-export MKLROOT=${MKLROOT}
+export MKLROOT=/opt/intel/compilers_and_libraries_2018.1.163/linux/mkl
 
 ## Make sure OPENBLASROOT is defined. (gcc/g++)
 export OPENBLASROOT=${OPENBLASROOT}
@@ -54,7 +54,7 @@ export HMLP_GPU_ARCH_MINOR=kepler
 ## (3) arm/armv8a
 ## (4) mic/knl
 export HMLP_ARCH_MAJOR=x86_64
-export HMLP_ARCH_MINOR=sandybridge
+export HMLP_ARCH_MINOR=haswell
 #export HMLP_ARCH_MAJOR=mic
 #export HMLP_ARCH_MINOR=knl
 
