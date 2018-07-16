@@ -4,8 +4,8 @@
 ## ======================================
 
 ## Make sure CC and CXX are set properly in your system.
-export CC=${CC}
-export CXX=${CXX}
+export CC=gcc-8
+export CXX=g++-8
 
 ##
 ## Ingore this flag if you are "not using" MacOS.
@@ -18,7 +18,7 @@ export CXX=${CXX}
 ## You "must" set following flag to true to use Intel or
 ## flase to use GNU compilers.
 ##
-export HMLP_USE_INTEL=true
+export HMLP_USE_INTEL=false
 
 ## Whether use BLAS or not?
 export HMLP_USE_BLAS=true
@@ -27,7 +27,7 @@ export HMLP_USE_BLAS=true
 export MKLROOT=${MKLROOT}
 
 ## Make sure OPENBLASROOT is defined. (gcc/g++)
-export OPENBLASROOT=${OPENBLASROOT}
+export OPENBLASROOT=/usr/local/opt/openblas/lib/
 
 ## Setup the maximum number of threads.
 export OMP_NUM_THREADS=10
@@ -153,11 +153,11 @@ echo "HMLP_DIR = $HMLP_DIR"
 
 ## Add our default building path  
 export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${HMLP_DIR}/build/lib/
-export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${MKLROOT}/lib/
-export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${OPENBLASROOT}/:${OPENBLASROOT}/lib/
+#export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${MKLROOT}/lib/
+#export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${OPENBLASROOT}/:${OPENBLASROOT}/lib/
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HMLP_DIR}/build/lib/
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKLROOT}/lib/
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${OPENBLASROOT}/:${OPENBLASROOT}/lib/
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKLROOT}/lib/
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${OPENBLASROOT}/:${OPENBLASROOT}/lib/
 export PYTHONPATH=${PYTHONPATH}:${HMLP_DIR}/build/python/
 export PYTHONPATH=${PYTHONPATH}:${HMLP_DIR}/build/lib/
 export PYTHONPATH=${PYTHONPATH}:${HMLP_DIR}/build/lib/python2.7/site-packages/

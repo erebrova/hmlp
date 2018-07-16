@@ -1094,7 +1094,7 @@ void Apply( NODE *node )
   {
     auto &bl = node->lchild->data.view;
     auto &br = node->rchild->data.view;
-    data.Apply<true>( bl, br );
+    data.template Apply<true>( bl, br );
   }
 }; /** end Apply() */
 
@@ -1119,14 +1119,14 @@ void Solve( NODE *node )
   if ( node->isleaf )
   {
     auto &b = data.view;
-    data.Solve<LU, TRANS>( b );
+    data.template Solve<LU, TRANS>( b );
     //printf( "Solve %lu, m %lu n %lu\n", node->treelist_id, b.row(), b.col() );
   }
   else
   {
     auto &bl = node->lchild->data.view;
     auto &br = node->rchild->data.view;
-    data.Solve<LU, TRANS, true>( bl, br );
+    data.template Solve<LU, TRANS, true>( bl, br );
     //printf( "Solve %lu, m %lu n %lu\n", node->treelist_id, bl.row(), bl.col() );
   }
 
@@ -1321,7 +1321,7 @@ void Factorize( NODE *node )
     }
 
     /** LU factorization */
-    data.Factorize<LU>( Kaa );
+    data.template Factorize<LU>( Kaa );
 
     /** U = inv( Kaa ) * proj' */
     data.Telescope( LU, true, data.U, proj );
@@ -1347,7 +1347,7 @@ void Factorize( NODE *node )
     //printf( "end get Crl\n" ); fflush( stdout );
 
     /** SMW factorization (LU or Cholesky) */
-    if ( LU ) data.Factorize<true>( Ul, Ur, Vl, Vr );
+    if ( LU ) data.template Factorize<true>( Ul, Ur, Vl, Vr );
     else      data.Factorize( Ul, Ur );
     //printf( "end factorization\n" ); fflush( stdout );
 

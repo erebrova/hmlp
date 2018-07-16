@@ -41,10 +41,10 @@ if ( APPLE )
     set (CMAKE_C_COMPILER_ID   Intel)
     set (CMAKE_CXX_COMPILER_ID Intel)
   else ()
-    set (CMAKE_C_COMPILER      gcc)
-    set (CMAKE_CXX_COMPILER    g++)
-    set (CMAKE_C_COMPILER_ID   GNU)
-    set (CMAKE_CXX_COMPILER_ID GNU)
+    #set (CMAKE_C_COMPILER      gcc)
+    #set (CMAKE_CXX_COMPILER    g++)
+    #set (CMAKE_C_COMPILER_ID   GNU)
+    #set (CMAKE_CXX_COMPILER_ID GNU)
   endif()
 endif ()
 
@@ -306,6 +306,7 @@ set (CMAKE_CXX_FLAGS    "${CMAKE_CXX_FLAGS} ${HMLP_CFLAGS} -std=c++11")
 #  endif()
 #endif()
 
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 
 # Headers

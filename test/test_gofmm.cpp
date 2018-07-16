@@ -221,7 +221,7 @@ void test_gofmm
   if ( lambda < 10.0 * ( fmmerr_avg / ntest ) )
     printf( "Warning! lambda %lf may be too small for accuracy %3.1E\n",
         lambda, fmmerr_avg / ntest );
-  hmlp::hfamily::Factorize<LU, NODE, T>( tree, lambda ); 
+  hmlp::hfamily::template Factorize<LU, NODE, T>( tree, lambda ); 
 
   /** compute error */
   hmlp::hfamily::ComputeError<LU, NODE>( tree, lambda, w, u );
